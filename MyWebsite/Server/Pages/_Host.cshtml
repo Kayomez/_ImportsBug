@@ -1,0 +1,49 @@
+﻿@page "/"
+@inject Microsoft.AspNetCore.Http.IHttpContextAccessor httpContextAccessor
+@addTagHelper *, Microsoft.AspNetCore.Mvc.TagHelpers
+@{
+    var title = "Page";
+    var description = "description";
+}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@title</title>
+    <meta name="description" content="@description" />
+    <meta name="DC.title" content="@title" />
+    <base href="/" />
+    <script src="scripts/Interop.js" integrity=""></script>
+    <link rel="stylesheet" href="css/bootstrap/bootstrap.min.css" />
+    <link href="css/mike/mike.min.css" rel="stylesheet" />
+    <link href="css/Site/app.min.css" rel="stylesheet" />
+    <link href="manifest.json" rel="manifest" />
+    @*<script src="https://kit.fontawesome.com/95a2ec14e8.js" crossorigin="anonymous" integrity=""></script>
+    <script src="https://www.google.com/recaptcha/api.js?render=6LeFuq4ZAAAAAC0NMQdhYsXS4LpmcaiMkka0yAJt" integrity=""></script>
+    <script src="https://www.paypal.com/sdk/js?client-id=Aew32uGren9ujN1Xdcw7djZ_r1f-CFUvY3qMCpar8w8h9ilJCnwdSOF6Lrumvw0gl8x44VPTFYTPMAT0&currency=GBP" integrity=""></script>*@
+</head>
+<body>
+    <app>
+        <component type="typeof(MyWebsite.Client.StandardComponents.App)" render-mode="ServerPrerendered" />
+        <div class="building-page">
+            <p>Please wait, the page is currently loading...</p>
+        </div>
+    </app>
+    <div id="blazor-error-ui">
+        <environment include="Staging,Production">
+            An error has occurred. This application may no longer respond until reloaded.
+        </environment>
+        <environment include="Development">
+            An unhandled exception has occurred. See browser dev tools for details.
+        </environment>
+        <a href="" class="reload">Reload</a>
+        <a class="dismiss">🗙</a>
+    </div>
+    <script src="_framework/blazor.webassembly.js"></script>
+    <script>navigator.serviceWorker.register('service-worker.js');</script>
+    <script src="js.js"></script>
+</body>
+</html>
+
